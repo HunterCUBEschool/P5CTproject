@@ -13,7 +13,7 @@ says it should do.
 
 
 #Write your answer to Parson's Problem #1 below:
-for x in (1,1,1,1,1,1,1,1,1,1):
+for x in range (0,10):
     print('hello world')
 #Write your answer to Parson's Problem #2 below:
 myList = []
