@@ -9,8 +9,9 @@ we need to provide choices to user
 
 """
 import random
-
 myList = []
+unique_list = []
+
 def mainProgram():
     while True:
         try:
@@ -21,8 +22,9 @@ def mainProgram():
     3. Return the value at an index position
     4. Random search
     5. Linear search
-    6. Print contents of list
-    7. Quit program   """)
+    6. Sort list
+    7. Print contents of list
+    8. Quit program   """)
             if choice == '1':
                 addToList()
             elif choice == '2':
@@ -34,7 +36,9 @@ def mainProgram():
             elif choice == '5':
                 linearSearch()
             elif choice == '6':
-                print(myList)
+                sortList()
+            elif choice == '7':
+                printLists()
             else:
                 break
         except:
@@ -59,6 +63,17 @@ def indexValues():
     print("Loading up your list now")
     indexPos = input("Which data piece would you like to see?    ")
     print("Your search came up with {}".format(myList[int(indexPos)]))
+
+def sortList(myList):
+    print("Sorting your data...")
+    for x in myList:
+        if x not in unique_list:
+            unique_list.append(x)
+    unique_list.sort()
+    showMe = input("Wanna see your new list?   ")
+    if showMe.lower() == "y":
+        print (unique_list)
+
 def randomSearch():
     print("Random search time!")
     print(myList[random.randint(0, len(myList)-1)])
@@ -69,6 +84,16 @@ def linearSearch():
     for x in range(len(myList)):
         if myList[x] == int(searchItem):
             print("Your item is at index position {}".format(x))
+            
+def printLists():
+    if len(unique_list) == 0:
+        print(myList)
+    else:
+        whichOne = input("Which list? sorted or unsorted?   ")
+        if whichOne.lower() == "sorted":
+            print(unique_list)
+        else:
+            print(myList)
     
 
 if __name__ == "__main__" :
