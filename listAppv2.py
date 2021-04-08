@@ -20,24 +20,37 @@ def mainProgram():
             choice = input("""    1. Add to the list ,
     2. Add a bunch of numbers to the list
     3. Return the value at an index position
-    4. Random search
-    5. Linear search
-    6. Sort list
-    7. Print contents of list
-    8. Quit program   """)
+    4. Sort list
+    5. Random search
+    6. Linear search
+    7. Recursive binary search
+    8. Iterative binary search
+    9. Print contents of list
+    10. Quit program   """)
             if choice == '1':
                 addToList()
             elif choice == '2':
                 addABunch()
+                
             elif choice == '3':
                 indexValues()
-            elif choice == '4':
-                randomSearch()
-            elif choice == '5':
-                linearSearch()
-            elif choice == '6':
+            elif choice =='4':
                 sortList(myList)
+            elif choice == '5':
+                randomSearch()
+            elif choice == '6':
+                linearSearch()
             elif choice == '7':
+                binSearch = input("What number are you looking for?   ")
+                recursiveBinarySearch(unique_list, 0, len(unique_list)-1, int(binSearch))
+            elif choice == '8':
+                binSearch = input("What number are you looking for?   ")
+                recursiveBinarySearch(unique_list, 0, len(unique_list)-1, int(binSearch))
+                if result != -1:
+                    print("Your number is at index position {}".format(result)) 
+                else:
+                    print("Your number could not be found in the list")
+            elif choice == '9':
                 printLists()
             else:
                 break
@@ -79,7 +92,7 @@ def randomSearch():
     print(myList[random.randint(0, len(myList)-1)])
 
 def linearSearch():
-    print("We're gonna check out each item one at a time in your list! this sucks.")
+    print("We're gonna check out each item one at a time in your list!")
     searchItem = input("What're you looking for?   ")
     for x in range(len(myList)):
         if myList[x] == int(searchItem):
